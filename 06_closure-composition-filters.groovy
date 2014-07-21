@@ -50,7 +50,13 @@ class MyService {
         def startsWithR = startsWith.curry('R')
         def allFilters = { [olderThan30, startsWithR]*.call(it).every { it } }
         return people.findAll(allFilters)
-    }       
+    }
+
+    List<Person> findAllPeopleByCriteria(Closure<Boolean>... filters) {
+        def allFilters = { Person p -> filter*.call(p).every() }
+
+        people.findAll(allFilters)
+    }
 }
 
 def myService = new MyService(sample)
