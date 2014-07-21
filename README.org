@@ -1,1 +1,3 @@
 * Functional Groovy
+
+  By [[http://twitter.com/marioggar][@marioggar]]

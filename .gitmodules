@@ -1,0 +1,3 @@
+[submodule "workshop-kaleidos"]
+	path = workshop-kaleidos
+	url = https://github.com/mariogarcia/workshop-kaleidos
