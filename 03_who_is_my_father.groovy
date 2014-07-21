@@ -27,10 +27,15 @@ Closure<Integer> addTwoNumbers = { a + b }
 
 // A) Resuelve ambas variables con map
 
+addTwoNumbers.delegate = map
+
 assert addTwoNumbers() == 5
 
 // C) Resuelve ambas variables resolviendo primero en A y despues
 // en map
+
+addTwoNumbers = addTwoNumbers.rehydrate(map, new A(), this)
+addTwoNumbers.setResolveStrategy(Closure.OWNER_FIRST)
 
 assert addTwoNumbers() == 6
 
