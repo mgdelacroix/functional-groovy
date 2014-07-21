@@ -1,3 +1,5 @@
 * Functional Groovy
 
   By [[http://twitter.com/marioggar][@marioggar]]
+
+  Original repository at [[https://github.com/mariogarcia/workshop-kaleidos]]
