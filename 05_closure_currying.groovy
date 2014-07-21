@@ -66,11 +66,15 @@ def ages = [22, 45, 64, 68, 47, 87, 45, 44, 45, 24, 37]
 
 def sample = [cities, names, ages].combinations() as Person[]
 
-def olderThan = { } //
-def olderThanThirty = {} // Use rcurry
+def olderThan = { Person person, Integer maxAge ->
+    return person.age > maxAge
+}
+def olderThanThirty = olderThan.rcurry(30) // Use rcurry
 
-def byCity = {}
-def livingInMadrid = {} // Use curry
+def byCity = { String expectedCity, Person person ->
+    return expectedCity == person.city
+}
+def livingInMadrid = byCity.curry('Madrid') // Use curry
 
 def findAllOlderThanThirtyAndLivingInMadrid = {
     return sample
